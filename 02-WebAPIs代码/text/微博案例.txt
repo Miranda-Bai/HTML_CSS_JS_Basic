@@ -1,0 +1,254 @@
+ * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .w {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .controls textarea {
+            width: 878px;
+            height: 100px;
+            resize: none;
+            border-radius: 10px;
+            outline: none;
+            padding-left: 20px;
+            padding-top: 10px;
+            font-size: 18px;
+        }
+
+        .controls {
+            overflow: hidden;
+        }
+
+        .controls div {
+            float: right;
+        }
+
+        .controls div span {
+            color: #666;
+        }
+
+        .controls div .useCount {
+            color: red;
+        }
+
+        .controls div button {
+            width: 100px;
+            outline: none;
+            border: none;
+            background: rgb(0, 132, 255);
+            height: 30px;
+            cursor: pointer;
+            color: #fff;
+            font: bold 14px &#39;宋体&#39;;
+            transition: all 0.5s;
+        }
+
+        .controls div button:hover {
+            background: rgb(0, 225, 255);
+        }
+
+        .controls div button:disabled {
+            background: rgba(0, 225, 255, 0.5);
+        }
+
+        .contentList {
+            margin-top: 50px;
+        }
+
+        .contentList li {
+            padding: 20px 0;
+            border-bottom: 1px dashed #ccc;
+            position: relative;
+        }
+
+        .contentList li .info {
+            position: relative;
+        }
+
+        .contentList li .info span {
+            position: absolute;
+            top: 15px;
+            left: 100px;
+            font: bold 16px &#39;宋体&#39;;
+        }
+
+        .contentList li .info p {
+            position: absolute;
+            top: 40px;
+            left: 100px;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .contentList img {
+            width: 80px;
+            border-radius: 50%;
+        }
+
+        .contentList li .content {
+            padding-left: 100px;
+            color: #666;
+            word-break: break-all;
+        }
+
+        .contentList li .the_del {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 28px;
+            cursor: pointer;
+        }
+    &lt;/style&gt;
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class&#61;&#34;w&#34;&gt;
+        &lt;!-- 操作的界面 --&gt;
+        &lt;div class&#61;&#34;controls&#34;&gt;
+            &lt;img src&#61;&#34;./images/9.6/tip.png&#34; alt&#61;&#34;&#34; /&gt;&lt;br /&gt;
+            &lt;!-- maxlength 可以用来限制表单输入的内容长度 --&gt;
+            &lt;textarea placeholder&#61;&#34;说点什么吧...&#34; id&#61;&#34;area&#34; cols&#61;&#34;30&#34; rows&#61;&#34;10&#34; maxlength&#61;&#34;200&#34;&gt;&lt;/textarea&gt;
+            &lt;div&gt;
+                &lt;span class&#61;&#34;useCount&#34; id&#61;&#34;useCount&#34;&gt;0&lt;/span&gt;
+                &lt;span&gt;/&lt;/span&gt;
+                &lt;span&gt;200&lt;/span&gt;
+                &lt;button id&#61;&#34;send&#34;&gt;发布&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- 微博内容列表 --&gt;
+        &lt;div class&#61;&#34;contentList&#34;&gt;
+            &lt;ul id&#61;&#34;list&#34;&gt;&lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 添加了hidden属性元素会直接隐藏掉 --&gt;
+    &lt;li hidden&gt;
+        &lt;div class&#61;&#34;info&#34;&gt;
+            &lt;img class&#61;&#34;userpic&#34; src&#61;&#34;./images/9.6/03.jpg&#34; /&gt;
+            &lt;span class&#61;&#34;username&#34;&gt;死数据:百里守约&lt;/span&gt;
+            &lt;p class&#61;&#34;send-time&#34;&gt;死数据:发布于 2020年12月05日 00:07:54&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class&#61;&#34;content&#34;&gt;死数据:111&lt;/div&gt;
+        &lt;span class&#61;&#34;the_del&#34;&gt;X&lt;/span&gt;
+    &lt;/li&gt;
+
+    &lt;script&gt;
+        // maxlength 是一个表单属性, 作用是给表单设置一个最大长度
+
+
+        // 模拟数据
+        let dataArr &#61; [
+            { uname: &#39;司马懿&#39;, imgSrc: &#39;./images/9.5/01.jpg&#39; },
+            { uname: &#39;女娲&#39;, imgSrc: &#39;./images/9.5/02.jpg&#39; },
+            { uname: &#39;百里守约&#39;, imgSrc: &#39;./images/9.5/03.jpg&#39; },
+            { uname: &#39;亚瑟&#39;, imgSrc: &#39;./images/9.5/04.jpg&#39; },
+            { uname: &#39;虞姬&#39;, imgSrc: &#39;./images/9.5/05.jpg&#39; },
+            { uname: &#39;张良&#39;, imgSrc: &#39;./images/9.5/06.jpg&#39; },
+            { uname: &#39;安其拉&#39;, imgSrc: &#39;./images/9.5/07.jpg&#39; },
+            { uname: &#39;李白&#39;, imgSrc: &#39;./images/9.5/08.jpg&#39; },
+            { uname: &#39;阿珂&#39;, imgSrc: &#39;./images/9.5/09.jpg&#39; },
+            { uname: &#39;墨子&#39;, imgSrc: &#39;./images/9.5/10.jpg&#39; },
+            { uname: &#39;鲁班&#39;, imgSrc: &#39;./images/9.5/11.jpg&#39; },
+            { uname: &#39;嬴政&#39;, imgSrc: &#39;./images/9.5/12.jpg&#39; },
+            { uname: &#39;孙膑&#39;, imgSrc: &#39;./images/9.5/13.jpg&#39; },
+            { uname: &#39;周瑜&#39;, imgSrc: &#39;./images/9.5/14.jpg&#39; },
+            { uname: &#39;老夫子&#39;, imgSrc: &#39;./images/9.5/15.jpg&#39; },
+            { uname: &#39;狄仁杰&#39;, imgSrc: &#39;./images/9.5/16.jpg&#39; },
+            { uname: &#39;扁鹊&#39;, imgSrc: &#39;./images/9.5/17.jpg&#39; },
+            { uname: &#39;马可波罗&#39;, imgSrc: &#39;./images/9.5/18.jpg&#39; },
+            { uname: &#39;露娜&#39;, imgSrc: &#39;./images/9.5/19.jpg&#39; },
+            { uname: &#39;孙悟空&#39;, imgSrc: &#39;./images/9.5/20.jpg&#39; },
+            { uname: &#39;黄忠&#39;, imgSrc: &#39;./images/9.5/21.jpg&#39; },
+            { uname: &#39;百里玄策&#39;, imgSrc: &#39;./images/9.5/22.jpg&#39; },
+        ]
+
+        // 需求1&#xff1a;检测用户输入数字
+        // 1.注册input事件
+        // 2. 将文本的内容的长度赋值给对应的数值
+        // 3.表单的maxlength属性可以直接限制在200个数之间
+        let textarea &#61; document.querySelector(&#39;textarea&#39;)
+        let useCount &#61; document.querySelector(&#39;.useCount&#39;)
+        // 点击发布
+        let send &#61; document.querySelector(&#39;#send&#39;)
+        // ul
+        let ul &#61; document.querySelector(&#39;#list&#39;)
+        textarea.addEventListener(&#39;input&#39;, function () {
+            // console.log(this.value.length);
+            useCount.innerHTML &#61; this.value.length  //把输入的长度赋值给 useCount.innerHTML的文本
+        })
+
+
+        // 需求2&#xff1a; 输入不能为空
+        // 点击button之后判断
+        // 判断如果内容为空&#xff0c;则提示不能输入为空&#xff0c;直接return   不能为空
+        // 防止输入无意义空格&#xff0c;使用字符串 .trim()去掉首尾空格
+        // console.log(&#39;   str&#39;);
+        // console.log(&#39;   str&#39;.trim());    注意是字符串.trim()
+        // 并将表单的value值设置为空格字符串
+        // 同时下面红色数字设置为0
+        send.addEventListener(&#39;click&#39;, function () {
+            if (textarea.value.trim() &#61;&#61;&#61; &#39;&#39;) {
+                textarea.value &#61; &#39;&#39;
+                useCount.innerHTML &#61; 0
+                return alert(&#39;内容不能为空&#39;)
+            }
+            // console.log(typeof new Date().toLocaleString());   //new Date()实例化获取本地时间  .toLocaleString转换为本地时间字符串类型  
+            // 随机数
+            function getRandom(min, max) {
+                return Math.floor(Math.random() * (max - min &#43; 1)) &#43; min
+            }
+            let random &#61; getRandom(0, dataArr.length - 1)
+
+            // 需求3&#xff1a; 新增留言 写到send的点击事件里面      点击之后才会新增小li
+            // 创建小li&#xff0c; 然后里面通过innerHTML追加数据       创建使用的新增节点
+            let li &#61; document.createElement(&#39;li&#39;)
+
+            // 利用时间对象将时间动态化&#xff0c;   new Date().toLocaleString()
+            // 随机获取数据数组里面的内容&#xff0c;替换newNode的图片和名字以及留言内容
+            li.innerHTML &#61; &#96;
+        &lt;div class&#61;&#34;info&#34;&gt;
+            &lt;img class&#61;&#34;userpic&#34; src&#61;${dataArr[random].imgSrc} /&gt;
+            &lt;span class&#61;&#34;username&#34;&gt;${dataArr[random].uname}&lt;/span&gt;
+            &lt;p class&#61;&#34;send-time&#34;&gt;${new Date().toLocaleString()}&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class&#61;&#34;content&#34;&gt;${textarea.value}&lt;/div&gt;
+        &lt;span class&#61;&#34;the_del&#34;&gt;X&lt;/span&gt;
+        &#96;
+
+
+                    // 需求5&#xff1a;  删除留言
+            // 在事件处理函数里面获取点击按钮&#xff0c;注册点击事件
+            // &#xff08;易错点&#xff1a; 必须在点击按钮事件里面获取&#xff0c;外面获取不到&#xff09;   就是先是点击新增li&#xff0c;才会出现删除li的需求&#xff0c;如果都没有新增li&#xff0c;如何获取到 X号
+            //删除对应的元素&#xff08;通过this获取对应的那条需要删除的元素&#xff09;
+            // 放到追加进ul的前面&#xff0c;这样创建元素的同时顺便绑定了事件
+            let del &#61;li.querySelector(&#39;.the_del&#39;)    //使用li.querySelector     今回使用document不行
+            del.addEventListener(&#39;click&#39;,function(){
+                // 删除操作  点击的是X   删除的是li       父元素.removechild(子元素)
+                ul.removeChild(this.parentNode)  
+            })
+        
+            // 追加给ul      复习追加节点&#xff1a;先是创建节点&#xff0c;节点必须追加在父元素里面
+            // 父元素.appendchild(子元素)   //追加在父元素最后面的子元素    只能在父元素最后面的子元素
+            // 父元素.insertBefore(子元素&#xff0c;放在哪个元素的前面)    可以指定追加位置
+            ul.insertBefore(li, ul.children[0])
+
+            // 需求4&#xff1a; 重置     写在追加节点之后&#xff0c;追加节点之后&#xff0c;才重置之前的内容
+            // 将表单内容重置为空
+            // 将userCount里面的内容重置为0
+            textarea.value &#61; &#39;&#39;
+            useCount.innerHTML &#61; 0
+
+
+
+        })
+
+

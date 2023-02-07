@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .luck {
+        display: inline-block;
+        width: 150px;
+        height: 30px;
+        border: 1px solid pink;
+        vertical-align: middle;
+        text-align: center;
+        line-height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="luck">0</div>
+      <br /><br />
+      <button class="start">开始抽奖</button>
+      <button class="end">结束</button>
+      <br /><br />
+      被抽中的幸运数字是：
+      <div class="show"></div>
+    </div>
+    <script>
+      //要点: 不能重复抽到同一个人，不能重复抽到同一数字
+      //返回min~max之间的一个随机数,包含min和max
+      function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      let random = 0;
+      //用来存放已经抽到的数字
+      let randomArr = [];
+      let div = document.querySelector(".luck");
+      let show = document.querySelector(".show");
+      let startBtn = document.querySelector(".start");
+      let endBtn = document.querySelector(".end");
+
+      function repeateCheck(arr, r) {
+        let check = false;
+        for (let i = 0; i < arr.length; i++) {
+          if (r === arr[i]) {
+            check = true;
+          }
+        }
+        return check;
+      }
+      let timer = 0;
+      startBtn.addEventListener("click", function () {
+        timer = setInterval(function () {
+          random = getRandom(0, 10);
+          while (repeateCheck(randomArr, random)) {
+            random = getRandom(0, 10);
+          }
+          div.innerHTML = random;
+          
+        }, 1000);
+      });
+
+      endBtn.addEventListener("click", function () {
+        clearInterval(timer);
+        show.innerHTML = show.innerHTML + `${random} `;
+        randomArr.push(random);
+        // 数字全部抽完
+        if (randomArr.length === 11) {
+            startBtn.disabled = true;
+            endBtn.disabled = true;
+          }
+      });
+    </script>
+  </body>
+</html>

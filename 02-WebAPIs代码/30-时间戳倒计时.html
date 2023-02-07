@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 400px;
+        height: 50px;
+        background-color: aqua;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      //倒计时，距离今天下午6点还有多久
+      let future = +new Date("2022-12-15 8:0:0");
+      console.log(future);
+
+      function countDown() {
+        let date = +new Date();
+        //如果时间已过
+        if (date > future) {
+          document.querySelector("div").innerHTML = "不好意思，活动已开始";
+          clearInterval(timer);
+        } else {
+          //hh:mm:ss
+          let countdown = future - date;
+          let t = countdown / 1000;
+          console.log(t);
+          let h = parseInt((t / 60 / 60) % 24);
+          let m = parseInt((t / 60) % 60);
+          let s = parseInt(t % 60);
+
+          h = h < 10 ? "0" + h : h;
+          m = m < 10 ? "0" + m : m;
+          s = s < 10 ? "0" + s : s;
+
+          document.querySelector("div").innerHTML = `${h}:${m}:${s}`;
+        }
+      }
+     
+      let timer = setInterval(countDown, 1000);
+      //let timer = setInterval("countDown()", 1000); //另一种写法
+      //直接调用函数可以解决开始1000毫秒的等待空白，因为要清空定时器，所以定时器必须在函数调用之前
+      countDown();
+    </script>
+  </body>
+</html>

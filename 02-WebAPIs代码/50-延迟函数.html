@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      
+      div {
+        
+        position: absolute;
+      }
+      img{
+        width: 1000px;
+        height: 500px;
+        position: relative;
+        z-index: -1;
+      }
+     span {
+        font-size: 20px;
+        color: ivory;
+        position: absolute;/*绝对布局*/
+        z-index: 1;/*置于上层*/
+        display: inline;
+        top: 470px;
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="img/0.webp" alt="" />
+      <span>5s</span>
+    </div>
+    <script>
+        let second=4;
+        //秒数倒计时
+        let timer = setInterval(function() {
+            document.querySelector("span").innerHTML=second-- + "s";
+
+        }, 1000);
+      //开屏广告，5s后自动消失
+      setTimeout(function(){
+        document.querySelector("div").style.display="none";
+        clearInterval(timer);
+      }, 5000)
+    </script>
+  </body>
+</html>

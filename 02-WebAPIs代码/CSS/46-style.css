@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  width: 1000px;
+  height: 3000px;
+  background-color: pink;
+  margin: 0 auto;
+}
+
+.backtop {
+  display: none;
+  width: 50px;
+  left: 50%;
+  margin: 0 0 0 505px;
+  position: fixed;
+  bottom: 60px;
+  z-index: 100;
+}
+
+.backtop a {
+  height: 50px;
+  width: 50px;
+  background: url(../day05-img/bg2.png) 0 -600px no-repeat;
+  opacity: 0.35;
+  overflow: hidden;
+  display: block;
+  text-indent: -999em;
+  cursor: pointer;
+}
+
+.backtop img{
+    cursor: pointer;
+}

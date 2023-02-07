@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 80px;
+      }
+      input[type="text"] {
+        width: 50px;
+        height: 44px;
+        outline: none;
+        border: 1px solid #ccc;
+        text-align: center;
+        border-right: 0;
+      }
+      input[type="button"] {
+        height: 24px;
+        width: 22px;
+        cursor: pointer;
+      }
+      input {
+        float: left;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="total" value="1" readonly />
+      <input type="button" value="+" id="add" />
+      <input type="button" value="-" id="reduce" disabled="true" />
+    </div>
+    <script>
+      let total = document.querySelector("#total");
+      let addBtn = document.querySelector("#add");
+      let reduceBtn = document.querySelector("#reduce");
+      //给加号添加事件
+      addBtn.addEventListener("click", function () {
+        //total.value = parseInt(total.value) + 1;
+        //i++ 隐式转换
+        total.value++;
+        console.log(total.value);
+        reduceBtn.disabled = false;
+      });
+      //给减号添加事件
+      reduceBtn.addEventListener("click", function () {
+        // total.value = parseInt(total.value) - 1;
+        total.value--;
+        if (parseInt(total.value) === 1) {
+          reduceBtn.disabled = true;
+        }
+      });
+    </script>
+  </body>
+</html>

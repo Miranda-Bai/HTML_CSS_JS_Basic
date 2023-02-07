@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pink{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button class="pink">第1个</button>
+    <button>第2个</button><button>第3个</button><button>第4个</button><button>第5个</button>
+    <script>
+        let btnList=document.querySelectorAll("button");
+        for(let i=0;i<btnList.length;i++){
+            btnList[i].addEventListener("click", function(){
+                //点击当前按钮，当前按钮变红，其他按钮无颜色
+                document.querySelector(".pink").classList.remove("pink");
+                this.classList.add("pink");
+            })
+        }
+    </script>
+</body>
+</html>

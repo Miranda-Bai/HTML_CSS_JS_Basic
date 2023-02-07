@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" value="请输入..."> -->
+
+    <input type="checkbox" class="agree" name="agree" value="1">
+    <input type="checkbox" class="agree" name="agree" value="2">
+    <input type="checkbox" class="agree" name="agree" value="3">
+    <input type="checkbox" class="agree" name="agree" value="4">
+    <button disabled="true">点击全选</button>
+
+    <script>
+        /* let input=document.querySelector("input");
+        input.value=""; */
+
+        let btn=document.querySelector("button");
+        let checkboxList=document.querySelectorAll(".agree");
+        // console.log(checkbox);
+        for(let i=0;i<checkboxList.length;i++){
+            checkboxList[i].checked=true;
+        }
+    </script>
+</body>
+</html>

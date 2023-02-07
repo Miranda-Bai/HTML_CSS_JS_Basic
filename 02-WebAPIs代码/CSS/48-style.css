@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.aside {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.item {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: red;
+  color: #fff;
+}
+
+.content {
+  width: 660px;
+  margin: 400px auto;
+  transition: all 1s;
+}
+
+.neirong {
+  height: 300px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.content1 {
+  background-color: red;
+}
+
+.content2 {
+  background-color: blue;
+}
+
+.content3 {
+  background-color: orange;
+}
+
+.content4 {
+  background-color: yellowgreen;
+}

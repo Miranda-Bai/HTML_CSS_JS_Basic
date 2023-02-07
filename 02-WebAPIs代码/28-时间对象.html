@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 400px;
+        height: 50px;
+        background-color: aqua;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      // 小括号为空可以得到当前的时间
+      let date = new Date();
+      /* console.log(date);
+      // 小括号里面写上时间，可以返回指定的时间
+      let last = new Date("2021-8-29 18:30:00");
+      console.log(last); */
+
+      /* console.log(date.getDate());
+      console.log(date.getTimezoneOffset());
+      //星期天返回0
+      console.log(date.getDay()); */
+
+      //YYYY-MM-DD HH:mm
+      let year = date.getFullYear();
+      //月份从0开始
+      let month = date.getMonth() + 1;
+      let day = date.getDate();
+      let hr = date.getHours();
+      let min = date.getMinutes();
+      let second = date.getSeconds();
+      let div = document.querySelector("div");
+
+      month = month < 10 ? "0" + month : month;
+      day = day < 10 ? "0" + day : day;
+      hr = hr < 10 ? "0" + hr : hr;
+      min = min < 10 ? "0" + min : min;
+      second = second < 10 ? "0" + second : second;
+
+      div.innerHTML = `${year}-${month}-${day} ${hr}:${min}:${second}`;
+      //月份从0开始
+      console.log(new Date("2022-01-01").getMonth());
+    </script>
+  </body>
+</html>

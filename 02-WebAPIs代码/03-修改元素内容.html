@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div>粉红色背景</div>
+    <script>
+      // 1.获取标签（元素）
+      let box = document.querySelector("div");
+      // 2.修改标签（元素）内容,innerText不识别标签，直接输出
+      box.innerText = "<strong>修改内容</strong>";
+      // innerHTML识别标签后输出
+      box.innerHTML = "<strong>修改内容</strong>";
+    </script>
+  </body>
+</html>

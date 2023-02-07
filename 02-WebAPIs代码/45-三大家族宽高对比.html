@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 3000px;
+      }
+      div {
+        width: 150px;
+        height: 150px;
+        background-color: aqua;
+        /* 文字超出时有滚动条 */
+        overflow: auto;
+        padding: 15px;
+        margin: 100px 150px;
+        border: 10px solid pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      lots and lots to read lots and lots to read lots and lots to read lots and
+      lots to read lots and lots to read lots and lots to read lots and lots to
+      read lots and lots to read lots and lots to read lots and lots to read
+      lots and lots to read lots and lots to read lots and lots to read
+    </div>
+    <script>
+      //1.scrollWidth  scrollHeight获取内容大小，不带单位（了解）
+      let div = document.querySelector("div");
+
+      console.log(div.scrollWidth);
+      console.log(div.scrollHeight);
+
+      //盒子元素的大小 = 盒子本身的宽度和高度 + padding + border
+      console.log(div.offsetWidth);
+      console.log(div.offsetHeight);
+
+      console.log(div.offsetTop);
+      console.log(div.offsetLeft);
+      console.log("------------------");
+      //client 当前可视区域 不包含滚动条 边框等
+      console.log(div.clientWidth);
+      console.log(div.clientHeight);
+      //边框的宽度border
+      console.log(div.clientTop);
+      console.log(div.clientLeft);
+
+      //2. 被卷去的头部和左侧
+      div.addEventListener("scroll", function () {
+        // console.log(this.scrollTop);
+      });
+      //页面滚动事件
+      window.addEventListener("scroll", function () {
+        //documentElement是页面的html,即所有标签
+        // let num = document.documentElement.scrollTop;
+        // document.documentElement.scrollTop = 500;
+        // console.log(document.documentElement.scrollTop);
+        // console.log(num);
+      });
+      //页面加载后直接滚动到500px的位置，无法实现？
+      window.addEventListener("load", function () {
+        // document.documentElement.scrollTop = 3500;
+        // console.log(document.documentElement.scrollTop);
+      });
+    </script>
+  </body>
+</html>

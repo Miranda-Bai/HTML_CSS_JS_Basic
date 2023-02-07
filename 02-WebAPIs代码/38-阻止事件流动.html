@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .father {
+        margin: 100px auto;
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+      }
+      .son {
+        width: 200px;
+        height: 200px;
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="son"></div>
+    </div>
+    <script>
+      let father = document.querySelector(".father");
+      let son = document.querySelector(".son");
+
+      father.addEventListener("click", function () {
+        alert("I'm his father");
+      });
+      //触发子元素的同时其祖先元素的所有相同事件会同时被触发
+      //dblclick双击事件
+      son.addEventListener("click", function (e) {
+        alert("I'm the son");
+        //阻止冒泡
+        e.stopPropagation();
+      });
+
+      document.addEventListener("click", function () {
+        alert("I'm the grandpa");
+      });
+    </script>
+  </body>
+</html>

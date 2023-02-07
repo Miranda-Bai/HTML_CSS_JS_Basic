@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button>点击</button>
+    <ul>
+      <li>子节点1</li>
+      <li>子节点2</li>
+      <li>子节点3</li>
+      <li>子节点4</li>
+      <li>子节点5</li>
+      <li>子节点6</li>
+    </ul>
+    <script>
+      let btn = document.querySelector("button");
+      let ul=document.querySelector("ul");
+
+      btn.addEventListener("click",function(){       
+        console.log(ul.children);//仅返回元素子节点
+        console.log(ul.childNodes); //返回所有子节点。包括文本...
+        
+        for(let i=0;i<ul.children.length;i++){
+            ul.children[i].classList.toggle("red");
+        }
+      })
+    </script>
+  </body>
+</html>

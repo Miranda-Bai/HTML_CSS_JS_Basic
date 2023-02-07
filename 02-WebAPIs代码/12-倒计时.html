@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <textarea name="" id="" cols="30" rows="10">
+        用户注册协议
+        欢迎成为闪闪用户！
+一、服务条款的确认及接受
+1、京东网站（指jd.com及其移动客户端软件、应用程序，以下称“本网站”）各项电子服务的所有权和运作权归属于“京东”所有，本网站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您确认所有服务条款并完成注册程序时，本协议在您与本网站间成立并发生法律效力，同时您成为本网站正式用户。
+2、根据国家法律法规变化及本网站运营需要，京东有权对本协议条款及相关规则不时地进行修改，修改后的内容一旦以任何形式公布在本网站上即生效，并取代此前相关内容，您应不时关注本网站公告、提示信息及协议、规则等相关内容的变动。您知悉并确认，如您不同意更新后的内容，应立即停止使用本网站；如您继续使用本网站，即视为知悉变动内容并同意接受。
+3、本协议内容中以加粗方式显著标识的条款，请您着重阅读。您点击“同意”按钮即视为您完全接受本协议，在点击之前请您再次确认已知悉并完全理解本协议的全部内容。
+    </textarea>
+    <br />
+    <button class="btn" disabled="true">我已经阅读用户协议(6s)</button>
+    <script>
+      let btn = document.querySelector(".btn");
+
+      let i = 6;
+      //倒计时
+      let countdown = setInterval(function () {
+        i--;
+        btn.innerHTML = `我已经阅读用户协议(${i}s)`;
+        if (i === 0) {
+          //清除定时器
+          clearInterval(countdown);
+          //开启按钮
+          btn.disabled = false;
+          btn.innerHTML = "我同意该协议";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

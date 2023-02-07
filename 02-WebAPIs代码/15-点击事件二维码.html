@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .erweima {
+        position: relative;
+        width: 130px;
+        height: 130px;
+        margin: 100px auto;
+        border: 1px solid #ccc;
+      }
+      .erweima .close_btn {
+        position: absolute;
+        left: -13px;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        line-height: 10px;
+        color: #ccc;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="erweima">
+      <img src="img/codebar.jpg" alt="" />
+      <i class="close_btn">X</i>
+    </div>
+    <script>
+      let btn = document.querySelector(".close_btn");
+      let code = document.querySelector(".erweima");
+
+      btn.addEventListener("click", function () {
+        //隐藏二维码
+        code.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

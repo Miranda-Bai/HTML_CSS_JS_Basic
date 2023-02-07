@@ -1,0 +1,142 @@
+/*  引入初始化 */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #666;
+}
+
+body {
+  background: #fff;
+  color: #666;
+  font-size: 14px;
+}
+
+input {
+  outline: none;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+/* 引入购物车样式 */
+table {
+  width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th {
+  font: normal 14px/50px "宋体";
+  color: #666;
+}
+
+th,
+td {
+  border: none;
+  text-align: center;
+  border-bottom: 1px dashed #ccc;
+}
+
+input[type="checkbox"] {
+  width: 13px;
+  height: 13px;
+}
+
+tbody p {
+  position: relative;
+  bottom: 10px;
+}
+
+tbody .add,
+tbody .reduce {
+  float: left;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #ccc;
+  text-align: center;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+tbody input[type="text"] {
+  width: 50px;
+  float: left;
+  height: 18px;
+  text-align: center;
+}
+
+tbody .count-c {
+  width: 98px;
+  margin: 0 auto;
+}
+
+button[disabled] {
+  color: #ddd;
+  cursor: not-allowed;
+}
+
+tbody tr:hover {
+  background: #eee;
+}
+
+tbody tr.active {
+  background: rgba(241, 209, 149, 0.945);
+}
+
+.controls {
+  width: 790px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  line-height: 50px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.controls .del-all,
+.controls .clear {
+  float: left;
+  margin-right: 50px;
+}
+
+.controls p {
+  float: right;
+  margin-right: 100px;
+}
+
+.controls span {
+  color: red;
+}
+
+.controls .pay {
+  position: absolute;
+  right: 0;
+  width: 80px;
+  height: 54px;
+  background: red;
+  font: bold 20px/54px "宋体";
+  color: #fff;
+  text-align: center;
+  bottom: -1px;
+}
+
+.controls .total-price {
+  font-weight: bold;
+}

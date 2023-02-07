@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* setInterval(function () {
+        console.log("找到武汉的外企工作");
+      }, 1000); */
+
+      function show() {
+        console.log("找到武汉的外企工作");
+      }
+      // show函数不加()，否则会立即调用
+      let timer=setInterval(show, 1000);
+      //关闭定时器
+      clearInterval(timer);
+    </script>
+  </body>
+</html>

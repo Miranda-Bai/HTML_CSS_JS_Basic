@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      margin: 240px auto;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <div>支付成功，<span class="second">5s</span>后自动跳转</div>
+      <a href="http://baidu.com">点击链接直接跳转</a>
+    </div>
+
+    <script>
+      let index = 5;
+      let timer = setInterval(function () {
+        if (index === 0) {
+          clearInterval(timer);
+          location.href = "http://baidu.com";
+        } else {
+          index--;
+          document.querySelector(".second").innerHTML = index + "s";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

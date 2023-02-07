@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid rgb(223, 219, 219);
+        width: 500px;
+        margin: 100px auto;
+        text-align: center;
+      }
+      th {
+        background-color: #09c;
+        font: bold 16px "微软雅黑";
+        color: #fff;
+        height: 24px;
+      }
+      td {
+        border: 1px solid #d0d0d0;
+        color: #404060;
+        padding: 10px;
+      }
+
+      .allCheck {
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" name="" id="checkAll" value="" />
+            <span id="checkSpan" >全选</span>
+          </th>
+          <th>商品</th>
+          <th>商家</th>
+          <th>价格</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" name="check" class="ck" value="" /></td>
+          <td>小米手机</td>
+          <td>小米</td>
+          <td>￥1999</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="check" class="ck" value="" /></td>
+          <td>小米净水器</td>
+          <td>小米</td>
+          <td>￥4999</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="check" class="ck" value="" /></td>
+          <td>小米电视</td>
+          <td>小米</td>
+          <td>￥5999</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      let checkAll = document.querySelector("#checkAll");
+      let checkList = document.querySelectorAll(".ck");
+      //给全选添加事件
+      checkAll.addEventListener("click", function () {
+        for (let i = 0; i < checkList.length; i++) {
+          checkList[i].checked = this.checked;
+        }
+        console.log(this.checked);
+        if (this.checked) {
+          document.querySelector("#checkSpan").innerHTML = "取消";
+        } else {
+          document.querySelector("#checkSpan").innerHTML = "全选";
+        }
+      });
+      //给小按钮绑定事件,同时给多个元素绑定相同事件
+      for (let i = 0; i < checkList.length; i++) {
+        checkList[i].addEventListener("click", function () {
+          if (!this.checked) {
+            checkAll.checked = false;
+            document.querySelector("#checkSpan").innerHTML = "全选";
+          } else {
+            // 如果所有小按钮都选中，则要改变全选
+            let ck = 1;
+            for (let j = 0; j < checkList.length; j++) {
+              //如果有没被选中的小按钮，则ck为0
+              if (!checkList[j].checked) {
+                ck = 0;
+                console.log("ck="+ck);
+              }
+            }
+            // 如果所有小按钮都选中，则要改变全选
+            if (ck) {
+              document.querySelector("#checkSpan").innerHTML = "取消";
+              checkAll.checked = true;
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

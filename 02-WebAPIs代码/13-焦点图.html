@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .img-box {
+        width: 700px;
+        height: 320px;
+        margin: 50px auto 0;
+        background: #000;
+        position: relative;
+      }
+      .img-box .tip {
+        width: 700px;
+        height: 53px;
+        line-height: 53px;
+        position: absolute;
+        bottom: 0px;
+        background-color: rgb(0, 0, 0, 0.8);
+        z-index: 10;
+      }
+      .img-box .tip h3 {
+        width: 82%;
+        margin: 0;
+        margin-right: 20px;
+        padding-left: 20px;
+        color: aqua;
+        font-size: 28px;
+      }
+      .img-box .pic {
+        width: 700px;
+        height: 320px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img-box">
+      <img class="pic" src="img/0.webp" alt="第一张图描述信息" title="爱的二八定律" />
+      <div class="tip">
+        <h3 class="text">爱的二八定律</h3>
+      </div>
+    </div>
+
+    <script>
+      let data = [
+        {
+          imgSrc: "img/0.webp",
+          title: "爱的二八定律",
+        },
+        {
+          imgSrc: "img/1.webp",
+          title: "奔跑吧，兄弟！",
+        },
+        {
+          imgSrc: "img/2.webp",
+          title: "斗破苍穹",
+        },
+        {
+          imgSrc: "img/3.webp",
+          title: "明日战绩",
+        },
+      ];
+
+      let pic = document.querySelector(".pic");
+      let text = document.querySelector(".text");
+      //记录图片张数
+      let i = 0;
+      //开启定时器
+      let timer = setInterval(function () {
+        i++;
+        pic.src = data[i].imgSrc;
+        text.innerHTML = data[i].title;
+
+        /* if (i === data.length - 1) {
+          i = -1;
+        } */
+        i === data.length - 1 ? (i = -1) : i;
+      }, 1000);
+    </script>
+  </body>
+</html>

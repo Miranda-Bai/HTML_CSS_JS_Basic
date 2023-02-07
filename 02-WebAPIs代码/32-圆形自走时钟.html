@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .clock {
+        position: relative;
+        width: 600px;
+        height: 600px;
+        margin: 0 auto;
+        background: url("img/32-clock.jpg") no-repeat;
+      }
+      .clock div {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+      }
+      .clock .hour {
+        background: url("img/32-hour.png") center no-repeat;
+      }
+      .clock .minute {
+        background: url("img/32-minute.png") center no-repeat;
+      }
+      .clock .second {
+        background: url("img/32-second.png") center no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div id="hour" class="hour"></div>
+      <div id="minute" class="minute"></div>
+      <div id="second" class="second"></div>
+    </div>
+    <script>
+      let hour = document.querySelector("#hour");
+      let minute = document.querySelector("#minute");
+      let second = document.querySelector("#second");
+
+      //先获取一次时间
+      getTime();
+      //设置每1秒更新一次时间
+      setInterval(getTime, 1000);
+
+      //获取当前时间
+      function getTime() {
+        let date = new Date();
+        let hr = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+
+        // 小时角度公式：小时 * 30 + 分钟 / 60 * 30
+        // 分钟角度公式：分钟 *6 + 秒 / 60 * 6
+        // 秒角度公式：当前秒数 * 6
+        //旋转多少度
+        hour.style.transform = `rotate(${hr * 30 + (m / 60) * 30}deg)`;
+        minute.style.transform = `rotate(${m * 6 + (s / 60) * 6}deg)`;
+        second.style.transform = `rotate(${s * 6}deg)`;
+      }
+    </script>
+  </body>
+</html>

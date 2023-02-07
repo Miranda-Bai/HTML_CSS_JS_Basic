@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "../实操案例"
+		},
+		{
+			"path": "../02-WebAPIs代码"
+		},
+		{
+			"path": "../01-JS基础代码"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../00-CSS+HTML"
+		},
+		{
+			"path": "../03-JS高级"
+		},
+		{
+			"path": "../07-ReactJS"
+		},
+		{
+			"path": "../06-VUE2&3"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "06-VUE2&3"
+	}
+}

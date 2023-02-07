@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* function sayHi() {
+        document.write(`你好~~~`);
+      }
+      sayHi(); */
+
+      //函数形参是变量，如果未赋值则默认为undefined
+      function getSum(x, y) {
+        x = x || 0;
+        y = y || 0;
+
+        document.write(x + y);
+        return x + y;
+      }
+
+      function getSumArray(numArray) {
+        let sum = 0;
+        if (numArray !== undefined) {
+          for (let i = 0; i < numArray.length; i++) {
+            sum += numArray[i];
+          }
+          document.write(sum);
+        }
+        return sum;
+      }
+
+      //   getSum(43);
+      //   let arry = [1, 4, 6, 9, 10];
+      //   getSumArray(arry);
+      document.write(getSumArray());
+    </script>
+  </body>
+</html>

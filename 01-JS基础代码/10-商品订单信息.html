@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        table {
+            margin:0 auto;
+            text-align:center;
+            border-collapse:collapse;
+        }
+        table th,td{
+            border:1px solid #000000;
+            padding:15px;
+        }
+        table caption{
+            margin:15px 0;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>
+            <h2>订单付款确认页面</h2>
+        </caption>
+        <tbody>
+            <tr>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品数量</th>
+                <th>总价</th>
+                <th>收货地址</th>
+            </tr>
+            <tr>
+                <td>小米手机</td>
+                <td id="price"></td>
+                <td id="amount"></td>
+                <td id="total"></td>
+                <td id="address"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        let price = prompt('请输入商品价格：');
+        let amount = prompt('请输入商品数量：');
+        let address = prompt('请输入地址：');
+
+        let total = price * amount;
+
+        document.getElementById('price').innerHTML = `${ price }元`;
+        document.getElementById('amount').innerHTML = amount;
+        document.getElementById('total').innerHTML = `${total}元`;
+        document.getElementById('address').innerHTML = address;
+    </script>
+</body>
+</html>

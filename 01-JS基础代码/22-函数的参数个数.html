@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* function fn(x, y) {
+        console.log(x + y);
+      }
+
+      //1.实参少于形参
+      fn(1);   // 1+undefined=NaN
+      //2.实参多于形参
+      fn(1, 2, 3);   // 1+2=3 */
+
+      //3.不知道会有几个参数时，用默认的arguments
+      /*  function fnArgu() {
+        //arguments仅在函数内有效,是伪数组
+        //伪数组比真数组少了一些pop() push()等方法
+        console.log(arguments);
+      }
+
+      fnArgu(1, 2, 3, 4, 5, 6); */
+      //防止用户不传值， 另一种做法：x=x||0; y=y||0;
+      //没有参数执行x=0; 有参数执行实参传值
+      function fn(x = 0, y = 0) {
+        console.log(x + y);
+      }
+
+      fn();
+    </script>
+  </body>
+</html>

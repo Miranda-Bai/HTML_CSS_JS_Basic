@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+        div:hover{
+            /* 里面写的是数字，不跟单位，倍数，2是2倍,1是1倍即不变 */
+            /* transform: scale(2, 2); */
+            /* 等比例缩放 同时修改宽高 */
+            /* transform: scale(2); */
+            /* 缩小是小于1 */
+            transform: scale(0.5);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

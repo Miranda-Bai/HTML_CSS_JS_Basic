@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .play-bar {
+        position: absolute;
+        top: 104px;
+        left: 0;
+        width: 189px;
+        height: 22px;
+        line-height: 22px;
+        padding: 0 10px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.6);
+        font-size: 12px;
+        border-radius: 0 0 2px 2px;
+      }
+      .clearfix {
+        zoom: 1;
+      }
+      .ico-play {
+        padding-left: 15px;
+        background-position: -256px -59px;
+      }
+      .ico-play {
+        background: url(img/index.png) no-repeat;
+        display: inline-block;
+      }
+      .fl {
+        float: left;
+      }
+      .clearfix:after {
+        content: "\20";
+        display: block;
+        height: 0;
+        line-height: 0;
+        visibility: hidden;
+        clear: both;
+      }
+      .tganime-fadein-child {
+        transition: opacity 0.3s ease;
+        animation-fill-mode: forwards;
+      }
+     .mask {
+        width: 209px;
+        height: 127px;
+        top: 0px;
+        left: 0px;
+        filter: Alpha(opacity=60);
+        opacity: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .pa {
+        position: absolute;
+      }
+      .mask-play-ico {
+        width: 40px;
+        height: 40px;
+        display: block;
+        margin: 40px auto 0;
+        background-position: -192px -64px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="img/海月.jfif" width="173" height="110" />
+      <span class="clearfix play-bar">
+        <em class="fl ico-play">1193.5万</em>
+      </span>
+      <div class="mask pa tganime-fadein-child">
+        <span class="mask-play-ico"></span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /* background-color: pink; */
+            margin: 100px auto;
+            /* 让翻转更立体 */
+            perspective: 350px;
+            /* 让子元素保持3d立体空间环境 */
+            transform-style: preserve-3d;
+            transition: all 1s;
+            text-align: center;
+            line-height: 200px;
+        }
+        .front, .back{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        .front{
+            background-color: aqua;
+            /* z-index: 1; */
+            /* 让前面的盒子和后面的盒子错开1px 这样就会显示后面的盒子了 */
+            transform: translateZ(1px);
+        }
+        .back{
+            background-color: purple;
+            /* 解决字也旋转的问题 像手机一样让2个盒子背靠背*/
+            transform: rotateY(180deg);
+        }
+        .box:hover {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="front">front</div>
+        <div class="back">back</div>
+    </div>
+</body>
+</html>

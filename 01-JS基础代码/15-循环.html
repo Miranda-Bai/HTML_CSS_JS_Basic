@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let money = 10000;
+      while (true) {
+        let num = prompt(`
+            请选择操作：
+            1.存钱
+            2.取钱
+            3.查看余额
+            4.退出
+        `);
+        if (num === "4") {
+          break;
+        } else if (num !== "1" && num !== "2" && num !== "3") {
+          alert("输入错误！");
+          continue;
+        } else {
+          switch (num) {
+            case "1":
+              let deposit = +prompt("请输入要存入的金额：");
+              money += deposit;
+              break;
+            case "2":
+              let withdraw = +prompt("请输入要取出的金额：");
+              money -= withdraw;
+              break;
+            case "3":
+              alert(`您的卡内余额是${money}`);
+              break;
+            default:
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

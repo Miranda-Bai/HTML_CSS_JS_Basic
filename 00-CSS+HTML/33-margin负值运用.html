@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li{
+            /* display: inline-block; */
+            float: left;
+            list-style: none;
+            width: 100px;
+            height: 100px;
+            border: 2px solid pink;
+            margin-left: -2px;
+        }
+        ul li:hover{
+            /* 相对定位会压住其他的标准流，如果都有定位可以用z-index提高层级 */
+            position: relative;
+            border-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+</html>

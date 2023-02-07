@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        position: relative;
+        width: 500px;
+        height: 260px;
+        margin: 100px auto;
+        background-color: pink;
+        overflow: hidden;
+      }
+      .pre {
+        background: url(./img/iconBtn.png) no-repeat;
+        background-position: -72px 0;
+        width: 35px;
+        height: 81px;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        opacity: 0.4;
+        bottom: -230px;
+        cursor: pointer;
+      }
+      .next {
+        background: url(./img/iconBtn.png) no-repeat;
+        background-position: 0 0;
+        width: 35px;
+        height: 81px;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        opacity: 0.4;
+        bottom: -230px;
+        cursor: pointer;
+      }
+      .slide-nav {
+        position: absolute;
+        bottom: 10px;
+        line-height: 16px;
+        height: 16px;
+        width: 100px;
+        text-align: center;
+        background: #fff;
+        margin-left: 200px;
+        border-radius: 8px;
+      }
+      .slide-nav li {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        background: #cbcbcb;
+        margin: 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="content">
+        <img src="./img/Christmas2.png" alt="" />
+      </div>
+      <div class="pre"></div>
+      <div class="next"></div>
+      <ul class="slide-nav">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

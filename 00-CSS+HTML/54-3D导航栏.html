@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+           margin: 100px;
+        }
+        ul li{
+            float: left;
+            margin: 5px;
+            width: 120px;
+            height: 35px;
+            list-style: none;
+        }
+        .box{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 35px;
+            /* perspective: 350px; */
+            transform-style: preserve-3d;
+            transition: all 1s;
+        }
+        .box:hover{
+            transform: rotateX(90deg);
+        }
+        .top, .bottom{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+        .top{
+            background-color: aqua;
+            
+            /* 把前面的盒子往前移高度的一半 因为立方体应该围绕它的中心点来旋转*/
+            transform: translateZ(17.5px);
+        }
+        .bottom{
+            background-color: bisque;
+            /* 让下面的盒子翻到下面去 先歪倒 在移到最下面 先位移再旋转*/
+            transform: translateY(17.5px);
+            transform: rotateX(-90deg);       
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="top">html</div>
+                <div class="bottom">css</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="top">javascript</div>
+                <div class="bottom">react js</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="top">java</div>
+                <div class="bottom">java ee</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="top">eclipse</div>
+                <div class="bottom">visual studio</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="top">sqlserver</div>
+                <div class="bottom">mysql</div>
+            </div>
+        </li>
+    </ul>
+    
+</body>
+</html>

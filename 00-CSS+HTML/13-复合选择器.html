@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ol li {
+        color: aquamarine;
+      }
+      ol li a {
+        background-color: red;
+      }
+      .nav > a {
+        color: rgb(235, 17, 101);
+        font: 40px "Microsoft yahei";
+      }
+      .combine,
+      .p {
+        color: blueviolet;
+        font-size: 40px;
+      }
+      a:link {
+        color: #333;
+        text-decoration: none;
+      }
+      a:visited {
+        color: orange;
+      }
+      a:hover{
+        color: skyblue;
+      }
+      a:active{
+        color: green;
+      }
+      input:focus{
+        background-color: orange;
+        border: 3px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>我是ol的孩子</li>
+      <li>我是ol的孩子</li>
+      <li>我是ol的孩子<a href="#">grandson</a></li>
+    </ol>
+    <ul>
+      <li>我是ul的孩子</li>
+      <li>我是ul的孩子</li>
+      <li>我是ul的孩子</li>
+    </ul>
+    <div class="nav">
+      <a href="#">son</a>
+      <p>
+        <a href="#">grandson</a>
+      </p>
+    </div>
+    <div class="combine">并集选择器表示A和B</div>
+    <p class="p">pig's family</p>
+    <a href="http://baidu.com">baidu</a>
+    <input type="text"><input type="text"><input type="text">
+  </body>
+</html>

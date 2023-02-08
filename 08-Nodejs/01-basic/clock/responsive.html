@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .banner{
+            background-color: antiquewhite;
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            line-height: 50px;
+            align-items: center;
+        }
+        .icon, .home, .user{
+            text-align: center;
+            background-color: aqua;
+            margin-left: 20px;
+            margin-right: 20px;
+            transition: 6s ease-in-out;
+        }
+        @media screen and (max-width:720px) {
+            .icon{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <div class="icon">icon</div>
+            <div class="home">Home</div>
+            <div class="user">User</div>
+        </div>
+    </div>
+</body>
+</html>

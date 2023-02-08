@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.clock-container {
+  /* background-color: antiquewhite; */
+  background: linear-gradient(#ee9ca7, #ffdde1);
+  width: 100%;
+  height: 100%;
+}
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: palegreen; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+.main2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  width: 50%;
+  /* transform: translate(-50%, -50%); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform: translateX(-50%) rotateX(180deg);
+  margin-top: 20px;
+  opacity: 0.5;
+}
+.main .card,
+.main2 .card {
+  /* background-color: rgba(248, 248, 248, 0.7); */
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 20px;
+  border-radius: 10px 10px 30px 30px;
+  text-align: center;
+  /* box-shadow: 10px 10px 10px rgb(248, 248, 248); */
+  height: 200px;
+  width: 70%;
+  line-height: 200px;
+  color: cornflowerblue;
+  font-size: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.main .card:hover {
+  box-shadow: 20px 20px 50px rgba(247, 247, 247, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}

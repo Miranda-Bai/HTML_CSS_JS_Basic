@@ -33,4 +33,53 @@ npm unpublish --force
 内置模块的加载优先级是最高的
 > 如果传递给require()的模块标识符不是内置模块，也不是自定义模块，则Node.js会从当前模块的父目录开始，尝试从/node_modules文件夹中加载第三方模块。
 > 如果没有找到对应的第三方模块，则移动到再上一层父目录中，进行加载，直到文件系统的根目录。
+# Express
+> npm install express --save
+# install nodemon
+sudo npm i -g nodemon
 
+node => nodemon
+可以自动监听项目的改变，不需要手动重启
+
+# Express中间件
+## 调用流程
+当一个请求到达Express的服务器之后，可以连续调用多个中间件，从而对这次请求进行预处理
+中间件格式如下：
+``` 
+app.get("/", function(req, res, next){
+    next()
+})
+```
+中间件函数的形参列表中，必须包含next参数。而路由处理函数中只包含req和res。
+next函数是实现多个中间件连续调用的关键，它表示把流转关系转交给下一个中间件或路由。
+> 局部生效的中间件， 全局中间件先生效
+
+```
+app.get("/", mw, mw2, mw3, (req,res)=>{
+    res.send("Home page")
+}) 
+
+app.get("/", [mw, mw2, mw3], (req,res)=>{
+    res.send("Home page")
+})
+```
+## 常见的中间件用法
+1. 应用级别的中间件
+2. 路由级别的中间件
+3. 错误级别的中间件
+    (error,req,res,next)
+    必须注册在所有路由之后
+4. Express 内置的中间件
+5. 第三方的中间件
+> 除了错误级别的中间件，其他中间件都必须在路由之前注册
+
+express.static 快速托管静态资源内置中间件，无兼容性问题
+express.json 解析json格式的请求体数据 4.16.0+可用
+express.urlencoded 解析 URL-encoded 格式的请求体数据 4.16.0+可用
+# 接口的跨域问题
+解决跨域问题的两种方案：
+1. CORS(主流的解决方案，推荐使用)
+    npm install cors
+    const cors = require("cors")
+    app.use(cors())
+2. JSONP（有缺陷的解决方案，只支持GET请求）

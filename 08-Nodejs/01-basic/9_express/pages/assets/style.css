@@ -1,0 +1,128 @@
+@import url("http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+body {
+  min-height: 100vh;
+  /* 弹性布局 水平+垂直居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #161626;
+}
+/* 给背景增加两个渐变圆 */
+body:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#2193b0, #6dd5ed);
+  /* 将元素剪切为一个圆形 30%圆的直径 right 70%表示圆心位置 */
+  clip-path: circle(30% at right 70%);
+}
+
+body:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#ee9ca7, #ffdde1);
+  clip-path: circle(20% at 10% 10%);
+}
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+.container .card {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 30px;
+  border-radius: 15px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  /* display: flex;
+  justify-content: center; */
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+.container .card .precontent{
+    height: 400px;
+    line-height: 400px;
+    text-align: center;
+    color: rgba(232, 103, 103, 0.5);
+    transition: 3s;
+}
+.container .card:hover .precontent{
+    display: none;
+}
+.container .card .content{
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    /* 默认下移 隐藏 */
+    transform: translateY(100px);
+    opacity: 0;
+    transition: .5s;
+}
+.container .card:hover .content{
+    /* 鼠标移入 上移 显示 */
+    transform: translateY(0);
+    opacity: 1;
+}
+.container .card .content .userform{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+.container .card .content input{
+    width: 80%;
+    display: block;
+    margin: 20px;
+    border-radius: 5px;
+    font-size: 28px;
+    border: none;
+    padding-left: 5px;
+}
+.container .card .content input:focus{
+    /* 可以设置的属性分别是（按顺序）：outline-color, outline-style, outline-width */
+    /* outline: none; */
+    outline: #6dd5ed solid 1.5px;
+}
+
+.container .card .content button{
+    padding: 8px 20px;
+    margin-top: 15px;
+    margin-right: -50%;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 500;
+    border: none;
+    font-size: 15px;
+}
+.container .card .content button:hover{
+    background-color: rgba(232, 103, 103, 0.5);
+    color: #fff;
+    transition: 1s;
+    box-shadow: 1px 1px rgb(232, 103, 103);
+}
+

@@ -155,5 +155,12 @@ Json Web Token
     此时，服务器可以通过express-jwt将客户端发送过来的Token解析为JSON对象。
     
     ![Screenshot 2023-02-10 at 8.48.27 PM](assets/Screenshot%202023-02-10%20at%208.48.27%20PM.png)
+# 对密码进行加密
+package: bcryptjs
+特性：加密之后的密码，无法被逆向破解
+同一明文密码多次加密，得到的加密结果各不相同，保证了安全性。
+# 表单数据验证
+@hapi/joi 包, 已废弃 => joi包 ，定义验证规则
+@escook/express-joi 包，自动对表单数据进行验证的功能
 
     

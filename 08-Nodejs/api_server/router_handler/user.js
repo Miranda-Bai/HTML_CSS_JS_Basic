@@ -1,5 +1,7 @@
 const bcrptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const db = require("../db/index");
+const config = require("../config");
 
 exports.registerUser = (req, res) => {
   //获得表单数据
@@ -51,5 +53,37 @@ exports.registerUser = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  res.send("login succeed!");
+  const userinfo = req.body;
+
+  //查询用户信息
+  const sqlStr = "select * from ev_users where username=?;";
+  db.query(sqlStr, userinfo.username, (error, results) => {
+    //查询出错
+    if (error) return res.cc(error);
+    //查询结果为空数组
+    if (!results.length) return res.cc("no such user!");
+    //有该用户，开始进行密码验证
+    // bcrpt.compareSync(用户提交的密码，数据库中的密码)
+    const compareResult = bcrptjs.compareSync(
+      userinfo.password,
+      results[0].password
+    );
+    if (!compareResult) {
+      return res.cc("login failed!");
+    }
+    // 在服务器端生成 JWT Token 的字符串
+    // 1.通过ES6高级语法，快速剔除密码和头像的值，jsonwebtoken包
+    const user = { ...results[0], password: "", user_pic: "" };
+    console.log("user: ", user);
+    // 对用户信息进行加密，生成token字符串
+    const tokenStr = jwt.sign(user, config.jwtSecretKey, {
+      expiresIn: config.expiresIn,
+    });
+    // 调用res.send()将token响应给客户端
+    res.send({
+      status: 0,
+      message: "login succeed!",
+      token: "Bearer " + tokenStr,
+    });
+  });
 };

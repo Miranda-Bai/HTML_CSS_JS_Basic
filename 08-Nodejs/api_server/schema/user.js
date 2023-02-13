@@ -30,9 +30,44 @@ const password = Joi.string()
   .pattern(/^[\S]{6,12}$/)
   .required();
 
+// 定义 id nickname emial 验证规则
+const id = Joi.number().integer().min(1).required();
+const nickname = Joi.string().required();
+const email = Joi.string().email().required();
+
+// 定义用户头像 验证规则，需要是base64格式的字符串
+// dataUri() 指的是如下格式的字符串 - data:image/png;base64,VE9PTUFOWVNFQ1JFVFM=
+const avatar = Joi.string().dataUri().required();
+
+// 注册用户的表单验证规则
 exports.reg_login_schema = {
   body: {
     username,
     password,
+  },
+};
+
+// 更新用户信息的表单验证规则
+exports.update_userinfo_schema = {
+  body: {
+    id,
+    nickname,
+    email,
+  },
+};
+
+// 重置密码的表单验证规则
+exports.update_password_schema = {
+  body: {
+    oldPwd: password,
+    // 新密码不等于旧密码，且要符合密码的验证规则
+    newPwd: Joi.not(Joi.ref("oldPwd")).concat(password),
+  },
+};
+
+// 更新用户头像表单验证规则
+exports.update_avatar_schema = {
+  body: {
+    avatar,
   },
 };
